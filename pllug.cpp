@@ -6,7 +6,7 @@ std::string choice_user;
 std::string choise_comp;
 int a;
 std::cout<<"Enter Rock,Scissors,Paper";
-std::cin>>choice;
+std::cin>>choice_user;
 a = rand()%3;
 if (string choise_user == rock || string choise_user == Rock)
 {
