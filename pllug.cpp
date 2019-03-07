@@ -6,9 +6,7 @@ using namespace std;
 
 int main()
 {
-	char x;
 	string choice_user;
-	string choice_comp;
 	int user,comp;
 	do
 	{
@@ -16,7 +14,11 @@ int main()
 		cout << "EXIT enter [x]" << endl;
 		cin >> choice_user;
 		comp = rand() % 3;
-		if (choice_user == "rock" || choice_user == "Rock")
+		if (choice_user == "x")
+		{
+			break;
+		}
+		else if (choice_user == "rock" || choice_user == "Rock")
 		{
 			user = 0;
 		}
@@ -28,42 +30,45 @@ int main()
 		{
 			user = 2;
 		}
-		else if(choice_user == "x")
-		{
-			break;
-		}
 		else
 		{
-			cout << "Incorect word. Try Again";
+			cout << "Incorect word. Try Again"<<endl;
+			continue;
 		}
+		do
+		{
+			if (comp == 0)
+			{
+				cout << "Rock";
+			}
+			else if (comp == 1)
+			{
+				cout << "Scissors";
+			}
+			else if (comp == 2)
+			{
+				cout << "Paper";
+			}
 
-		if (comp == 0)
-		{
-			cout << "Rock";
-		}
-		else if (comp == 1)
-		{
-			cout << "Scissors";
-		}
-		else if (comp == 2)
-		{
-			cout << "Paper";
-		}
-
-		cout << endl;
-		if (user == comp)
-		{
-			cout << "WIN FRIENDSHIP";
-		}
-		else if (user > comp)
-		{
-			cout << "YOU WIN";
-		}
-		else if (user < comp)
-		{
-			cout << "YOU LOSS";
-		}
-		cout << endl<<endl;
+			cout << endl;
+			if (user == comp)
+			{
+				cout << "WIN FRIENDSHIP";
+				break;
+			}
+			else if ((user == 0 && comp == 1) || (user == 1 && comp == 2) || (user == 2 && comp == 0))
+			{
+				cout << "YOU WIN";
+				break;
+			}
+			else if ((user == 0 && comp == 2) || (user == 1 && comp == 0) || (user == 2 && comp == 1 ))
+			{
+				cout << "YOU LOSS";
+				break;
+			}
+			
+		} while (true);
+		cout << endl << endl;
 	} while (true);
 	_getch();
 	return 0;
